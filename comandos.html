@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notsbot's - Comandos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(255,0,0,0.1) 0%, transparent 100%);
+            border-bottom: 2px solid #ff0000;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ff0000;
+            box-shadow: 0 0 30px rgba(255,0,0,0.5);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255,0,0,0.8);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #888;
+            font-style: italic;
+        }
+        
+        .quote {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,0,0,0.1);
+            border-left: 4px solid #ff0000;
+            font-style: italic;
+            color: #ff6666;
+        }
+        
+        .category {
+            margin-top: 40px;
+            background: rgba(20,20,20,0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .category-header {
+            padding: 20px;
+            background: linear-gradient(90deg, #ff0000 0%, #aa0000 100%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .category-header h2 {
+            font-size: 1.5em;
+        }
+        
+        .category-icon {
+            font-size: 2em;
+        }
+        
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .command-card {
+            background: rgba(30,30,30,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+        }
+        
+        .command-card:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 15px rgba(255,0,0,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .command-name {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #ff0000;
+            background: rgba(255,0,0,0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .command-desc {
+            color: #ccc;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        .aliases {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #888;
+        }
+        
+        .aliases span {
+            background: rgba(100,100,100,0.2);
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 40px;
+            border-top: 2px solid #ff0000;
+            color: #666;
+        }
+        
+        .footer-logo {
+            font-size: 2em;
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animación de pulso para el logo */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(255,0,0,0.5);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(255,0,0,0.8);
+            }
+        }
+        
+        .logo {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="notsbots_avatar.png" alt="Notsbot's Avatar" class="logo">
+            <h1>NOTSBOT'S</h1>
+            <p class="subtitle">Bot de Discord para Servidores Gaming</p>
+            <div class="quote">
+                "Puedes odiarme, puedes amarme, pero nunca vas a ignorarme... porque en este juego, yo siempre tengo la última bala."
+            </div>
+        </header>
+        
+        <!-- Información -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">ℹ️</span>
+                <h2>Información</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!help</div>
+                    <div class="command-desc">Muestra la lista completa de comandos disponibles.</div>
+                    <div class="aliases">Alias: <span>!ayuda</span> <span>!comandos</span></div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!info</div>
+                    <div class="command-desc">Información sobre Notsbot's, su historia y personalidad.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!ping</div>
+                    <div class="command-desc">Muestra la latencia del bot con un comentario sarcástico.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!serverinfo</div>
+                    <div class="command-desc">Muestra información detallada del servidor.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!userinfo [@usuario]</div>
+                    <div class="command-desc">Muestra información de un usuario específico.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Perfil -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">👤</span>
+                <h2>Perfil y Niveles</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!perfil [@usuario]</div>
+                    <div class="command-desc">Muestra tu perfil gamer completo con stats, nivel y créditos.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!rank</div>
+                    <div class="command-desc">Muestra tu posición en el ranking del servidor.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!top</div>
+                    <div class="command-desc">Muestra el top 10 de usuarios del servidor.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Economía -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">💰</span>
+                <h2>Economía</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!creditos [@usuario]</div>
+                    <div class="command-desc">Muestra tu saldo de créditos con un comentario de Notsbot's.</div>
+                    <div class="aliases">Alias: <span>!bal</span> <span>!dinero</span> <span>!money</span></div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!diario</div>
+                    <div class="command-desc">Reclama tu recompensa diaria de 100 créditos.</div>
+                    <div class="aliases">Alias: <span>!daily</span> <span>!recompensa</span></div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!transferir @usuario cantidad</div>
+                    <div class="command-desc">Transfiere créditos a otro usuario del servidor.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Diversión -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🎮</span>
+                <h2>Diversión</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!insultar [@usuario]</div>
+                    <div class="command-desc">Notsbot's suelta un insulto creativo y gamer.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!motivar [@usuario]</div>
+                    <div class="command-desc">Motivación "a lo Notsbot's" - dura pero efectiva.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!roastme</div>
+                    <div class="command-desc">Notsbot's te humilla con estilo. ¡Prepárate!</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!mvp @usuario</div>
+                    <div class="command-desc">Nombrar a alguien MVP del día y darle +50 XP.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!duelo @usuario</div>
+                    <div class="command-desc">Desafía a alguien a un duelo 1v1 virtual.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!8ball pregunta</div>
+                    <div class="command-desc">Pregunta a la bola 8 mágica de Notsbot's.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gaming -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🎯</span>
+                <h2>Gaming</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!buscarpartida [juego]</div>
+                    <div class="command-desc">Busca compañeros para jugar. Ej: !buscarpartida COD</div>
+                    <div class="aliases">Alias: <span>!lfp</span> <span>!buscar</span></div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!crearequipo nombre</div>
+                    <div class="command-desc">Crea un equipo con un nombre personalizado.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!unirse equipo</div>
+                    <div class="command-desc">Únete a un equipo existente.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!equipos</div>
+                    <div class="command-desc">Muestra los equipos activos del servidor.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!miembro</div>
+                    <div class="command-desc">Solicita el rol de miembro oficial del servidor.</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Moderación -->
+        <div class="category">
+            <div class="category-header">
+                <span class="category-icon">🛡️</span>
+                <h2>Moderación</h2>
+            </div>
+            <div class="commands-grid">
+                <div class="command-card">
+                    <div class="command-name">!advertir @usuario razón</div>
+                    <div class="command-desc">Advierte a un usuario. Requiere permiso Kick Members.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!mute @usuario tiempo razón</div>
+                    <div class="command-desc">Silencia a un usuario. Tiempo: 10m, 1h, 1d</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!kick @usuario razón</div>
+                    <div class="command-desc">Expulsa a un usuario del servidor.</div>
+                </div>
+                <div class="command-card">
+                    <div class="command-name">!ban @usuario razón</div>
+                    <div class="command-desc">Banea a un usuario permanentemente.</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-logo">🔥</div>
+            <p><strong>Notsbot's</strong> - Hecho con actitud y un gran corazón</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Bot de Discord para servidores gaming</p>
+        </footer>
+    </div>
+</body>
+</html>
