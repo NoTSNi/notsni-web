@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Iconos para Redes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
@@ -38,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Fondo Animado de Estrellas/Polvo */
         body::before {
             content: "";
             position: fixed;
@@ -56,11 +57,26 @@
             width: 100%;
             background: rgba(5, 5, 5, 0.95);
             border-bottom: 2px solid var(--primary);
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .nav-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            object-fit: cover;
         }
 
         .logo-text {
@@ -68,14 +84,13 @@
             font-weight: 900;
             color: var(--primary);
             font-size: 1.5rem;
-            text-decoration: none;
             letter-spacing: 2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav a {
@@ -83,6 +98,7 @@
             color: var(--light);
             font-weight: 600;
             text-transform: uppercase;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
 
@@ -100,7 +116,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80') center/cover;
             border-bottom: 3px solid var(--primary);
         }
 
@@ -111,22 +127,26 @@
             text-shadow: 0 0 20px var(--primary);
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            max-width: 800px;
-        }
-
-        .cta-buttons {
+        /* Redes Sociales Hero */
+        .social-links {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .btn {
-            padding: 15px 35px;
+            padding: 12px 30px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             text-decoration: none;
@@ -134,6 +154,7 @@
             text-transform: uppercase;
             transition: 0.4s;
             cursor: pointer;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -143,100 +164,88 @@
             box-shadow: 0 0 15px var(--primary);
         }
 
-        .btn-primary:hover {
-            background: white;
-            color: var(--primary);
-            transform: scale(1.05);
-        }
-
         /* Secciones */
-        section {
-            padding: 80px 10%;
-        }
-
+        section { padding: 80px 10%; }
         .section-title {
             font-family: 'Orbitron', sans-serif;
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
             color: var(--primary);
+        }
+
+        /* Noticias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background: var(--gray);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .news-card:hover { border-color: var(--primary); transform: scale(1.02); }
+
+        .news-img {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content { padding: 20px; }
+        .news-tag {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: bold;
             text-transform: uppercase;
         }
 
-        /* Grid de Juegos */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        /* Ranking con Pestañas */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
-        .game-card {
+        .tab-btn {
             background: var(--gray);
             border: 1px solid #333;
-            padding: 20px;
-            border-radius: 10px;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Orbitron';
             transition: 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
-        .game-card:hover {
+        .tab-btn.active {
+            background: var(--primary);
             border-color: var(--primary);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
         }
 
-        .game-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
+        .rank-content { display: none; }
+        .rank-content.active { display: block; }
 
-        /* Stats/Ranking */
-        .stats-container {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--primary);
-            overflow-x: auto;
-        }
-
-        table {
+        .stats-table {
             width: 100%;
+            background: var(--gray);
+            border-radius: 10px;
             border-collapse: collapse;
+        }
+
+        .stats-table th, .stats-table td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
             text-align: left;
         }
 
-        th, td {
-            padding: 15px;
-            border-bottom: 1px solid #333;
-        }
-
-        th {
-            color: var(--primary);
-            text-transform: uppercase;
-        }
-
-        tr:hover {
-            background: rgba(255, 0, 0, 0.05);
-        }
-
-        .live-badge {
-            background: #ff0000;
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 10px;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* Buscador de Comandos */
+        /* Buscador Comandos */
         #command-search {
             width: 100%;
             padding: 15px;
@@ -244,203 +253,183 @@
             border: 1px solid var(--primary);
             color: white;
             border-radius: 5px;
-            margin-bottom: 30px;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
 
         .command-card {
             background: #111;
             padding: 15px;
-            margin-bottom: 10px;
             border-left: 4px solid var(--primary);
+            margin-bottom: 10px;
         }
 
         footer {
-            background: var(--darker);
-            border-top: 2px solid var(--primary);
-            padding: 50px 10%;
+            padding: 40px;
+            background: #000;
             text-align: center;
+            border-top: 2px solid var(--primary);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav ul { display: none; }
-            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
     <header class="nav-container">
-        <a href="#" class="logo-text">NOTSNI</a>
+        <a href="#" class="logo-area">
+            <img src="notsbots_avatar.png" alt="NOTSNI Logo" class="nav-avatar">
+            <span class="logo-text">NOTSNI</span>
+        </a>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#noticias">Noticias</a></li>
                 <li><a href="#juegos">Juegos</a></li>
                 <li><a href="#ranking">Ranking</a></li>
                 <li><a href="#comandos">Comandos</a></li>
             </ul>
         </nav>
-        <a href="https://discord.gg/TU_INVITACION" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Discord</a>
+        <a href="https://discord.gg/TU_INVITACION" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.7rem;">Entrar al Clan</a>
     </header>
 
     <section id="inicio" class="hero">
         <h1>NOTSNI <span id="type-text" style="color: var(--primary);"></span></h1>
-        <p>La comunidad definitiva para amantes de los shooters competitivos. Únete a la resistencia.</p>
+        <p>Dominando el campo de batalla en cada disparo.</p>
         
-        <div class="cta-buttons">
-            <a href="#juegos" class="btn btn-primary">Ver Escuadrones</a>
-            <a href="#comandos" class="btn" style="border: 1px solid var(--primary); color: white;">Notsbot's</a>
+        <div class="social-links">
+            <a href="https://www.twitch.tv/xxnotsnixx" target="_blank"><i class="fab fa-twitch"></i></a>
+            <a href="https://kick.com/xxnotsnixx" target="_blank"><i class="fas fa-bolt"></i></a>
+            <a href="https://www.tiktok.com/@xxnotsnixx" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://x.com/xXNoTSNiXx" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/@xxnotsnixx3599" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/xxnotsnixx/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
 
-        <!-- Widget de Discord en vivo -->
-        <div style="margin-top: 40px; width: 100%; max-width: 350px;">
-            <iframe src="https://discord.com/widget?id=TU_SERVER_ID&theme=dark" width="100%" height="150" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        <div class="cta-buttons">
+            <a href="#juegos" class="btn btn-primary">Ver Escuadrones</a>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: NOTICIAS -->
+    <section id="noticias">
+        <h2 class="section-title">Noticias Recientes</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1614027126214-413988697394?auto=format&fit=crop&q=80');"></div>
+                <div class="news-content">
+                    <span class="news-tag">Warzone</span>
+                    <h3>Nueva Temporada: Cambios en el Mapa</h3>
+                    <p>Analizamos los nuevos puntos de interés y el meta actual de armas.</p>
+                    <small>Publicado hace 2 horas</small>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80');"></div>
+                <div class="news-content">
+                    <span class="news-tag">Comunidad</span>
+                    <h3>NOTSNI x Battlefield 6</h3>
+                    <p>Preparamos el despliegue masivo para el próximo fin de semana.</p>
+                    <small>Publicado ayer</small>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="juegos">
-        <h2 class="section-title">Nuestros Campos de Batalla</h2>
-        <div class="games-grid">
-            <div class="game-card">
-                <h3>Warzone</h3>
-                <p>Despliegue táctico en Urzikstan. ¿Serás el último en pie?</p>
-                <div style="margin-top: 15px; color: var(--text-gray);">80+ Activos</div>
+        <h2 class="section-title">Campos de Batalla</h2>
+        <div class="news-grid"> <!-- Reutilizo grid para juegos -->
+            <div class="news-card">
+                <div class="news-content" style="text-align:center;">
+                    <h3>Warzone</h3>
+                    <p>Datos en tiempo real de miembros activos.</p>
+                    <div style="font-size: 2rem; color: var(--primary); margin: 15px 0;">82 Online</div>
+                    <a href="https://cod.tracker.gg" target="_blank" class="btn btn-primary" style="font-size: 0.7rem;">Ver Escuadrón Real</a>
+                </div>
             </div>
-            <div class="game-card">
-                <h3>Battlefield 6</h3>
-                <p>Guerra total a gran escala. Destrucción absoluta.</p>
-                <div style="margin-top: 15px; color: var(--text-gray);">60+ Activos</div>
-            </div>
-            <div class="game-card">
-                <h3>Gears of War</h3>
-                <p>Combate brutal cuerpo a cuerpo. Serrar o morir.</p>
-                <div style="margin-top: 15px; color: var(--text-gray);">45+ Activos</div>
-            </div>
-            <div class="game-card">
-                <h3>Valorant</h3>
-                <p>Precisión táctica y habilidades únicas.</p>
-                <div style="margin-top: 15px; color: var(--text-gray);">50+ Activos</div>
+            <div class="news-card">
+                <div class="news-content" style="text-align:center;">
+                    <h3>Battlefield 6</h3>
+                    <p>Escuadrón de asalto y vehículos.</p>
+                    <div style="font-size: 2rem; color: var(--primary); margin: 15px 0;">54 Online</div>
+                    <a href="https://battlefieldtracker.com" target="_blank" class="btn btn-primary" style="font-size: 0.7rem;">Ver Perfiles</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="ranking" style="background: rgba(255,0,0,0.02);">
-        <h2 class="section-title">Top Operadores</h2>
-        <div class="stats-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rango</th>
-                        <th>Operador</th>
-                        <th>Nivel</th>
-                        <th>Bajas</th>
-                        <th>K/D</th>
-                    </tr>
-                </thead>
-                <tbody id="ranking-body">
-                    <tr onclick="window.open('https://cod.tracker.gg', '_blank')" style="cursor: pointer;">
-                        <td>1</td>
-                        <td>Notsni_Owner <span class="live-badge">LIVE</span></td>
-                        <td>50</td>
-                        <td>12,450</td>
-                        <td style="color: #00ff00;">2.85</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SniperElite</td>
-                        <td>48</td>
-                        <td>10,120</td>
-                        <td style="color: #00ff00;">2.10</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Ghost_Soldier</td>
-                        <td>45</td>
-                        <td>9,800</td>
-                        <td style="color: #00ff00;">1.95</td>
-                    </tr>
+    <!-- RANKING CON PESTAÑAS -->
+    <section id="ranking">
+        <h2 class="section-title">Ranking Oficial</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showRank('wz')">WARZONE</button>
+            <button class="tab-btn" onclick="showRank('bf')">BATTLEFIELD</button>
+            <button class="tab-btn" onclick="showRank('gow')">GEARS</button>
+        </div>
+
+        <div id="wz" class="rank-content active">
+            <table class="stats-table">
+                <thead><tr><th>#</th><th>Operador</th><th>K/D</th><th>Bajas</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Notsni_Owner <span style="background:red; padding:2px 5px; font-size:10px;">LIVE</span></td><td>2.85</td><td>12,450</td></tr>
+                    <tr><td>2</td><td>Sniper_Pro</td><td>2.10</td><td>8,120</td></tr>
                 </tbody>
             </table>
         </div>
-        <p style="text-align: center; margin-top: 20px; color: var(--text-gray);">Ranking actualizado vía Tracker.gg y Battlefield Tracker.</p>
+
+        <div id="bf" class="rank-content">
+            <table class="stats-table">
+                <thead><tr><th>#</th><th>Soldado</th><th>Puntuación</th><th>Tiempo</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td>Tank_Killer</td><td>500,200</td><td>120h</td></tr>
+                    <tr><td>2</td><td>Medic_Hero</td><td>450,000</td><td>300h</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align:center; margin-top:20px; color:var(--text-gray); font-size:0.8rem;">Datos sincronizados automáticamente con API Trackers.</p>
     </section>
 
     <section id="comandos">
         <h2 class="section-title">Comandos de Notsbot's</h2>
-        <input type="text" id="command-search" placeholder="🔍 ¿Qué comando necesitas? (ej: nivel, ban, avatar...)">
-        
+        <input type="text" id="command-search" placeholder="🔍 ¿Buscas un comando? Escribe aquí...">
         <div id="commands-list">
-            <div class="command-card">
-                <strong>!nivel</strong> - Muestra tu rango actual y XP en la comunidad.
-            </div>
-            <div class="command-card">
-                <strong>!stats [ID]</strong> - Muestra tus estadísticas globales en Warzone/Battlefield.
-            </div>
-            <div class="command-card">
-                <strong>!top</strong> - Muestra los usuarios más activos del servidor.
-            </div>
-            <div class="command-card">
-                <strong>!ban @usuario</strong> - (Admin) Expulsa permanentemente a un intruso.
-            </div>
-            <div class="command-card">
-                <strong>!moneda</strong> - Sistema de economía: Gana créditos por estar activo.
-            </div>
+            <div class="command-card"><strong>!nivel</strong> - Revisa tu progreso en el servidor.</div>
+            <div class="command-card"><strong>!stats [ID]</strong> - Muestra estadísticas de Warzone/Battlefield.</div>
+            <div class="command-card"><strong>!top</strong> - Ranking de los más activos.</div>
+            <div class="command-card"><strong>!social</strong> - Enlaces a todas las redes de NOTSNI.</div>
         </div>
     </section>
 
     <footer>
-        <div style="font-family: 'Orbitron'; font-size: 2rem; color: var(--primary); margin-bottom: 20px;">NOTSNI</div>
-        <p>Comunidad Gaming de Shooters de Elite.</p>
-        <div style="margin: 20px 0; display: flex; justify-content: center; gap: 20px;">
-            <a href="#" style="color: white; text-decoration: none;">Twitter</a>
-            <a href="#" style="color: white; text-decoration: none;">Twitch</a>
-            <a href="#" style="color: white; text-decoration: none;">Discord</a>
-        </div>
-        <p style="color: var(--text-gray); font-size: 0.8rem;">© 2024 NOTSNI Gaming Community. Todos los derechos reservados.</p>
+        <img src="notsbots_avatar.png" style="width: 80px; margin-bottom: 20px;" alt="Logo Final">
+        <p>© 2024 NOTSNI GAMING COMMUNITY</p>
+        <p style="color: var(--text-gray); font-size: 0.8rem; margin-top: 10px;">La victoria no se negocia.</p>
     </footer>
 
-    <!-- Scripts de Funcionalidad -->
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script>
-        // 1. Efecto de Escritura en el Hero
+        // 1. Efecto Escritura
         new Typewriter('#type-text', {
-            strings: ['GAMING', 'WARZONE', 'BATTLEFIELD', 'GEARS OF WAR', 'VALORANT'],
+            strings: ['COMUNIDAD', 'WARZONE', 'BATTLEFIELD', 'GEARS OF WAR', 'VALORANT'],
             autoStart: true,
-            loop: true,
-            deleteSpeed: 50,
-            delay: 100
+            loop: true
         });
 
-        // 2. Buscador de Comandos en Tiempo Real
-        const searchInput = document.getElementById('command-search');
-        const commands = document.querySelectorAll('.command-card');
+        // 2. Funcionalidad Pestañas Ranking
+        function showRank(game) {
+            document.querySelectorAll('.rank-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(game).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
 
-        searchInput.addEventListener('input', (e) => {
+        // 3. Buscador Comandos
+        document.getElementById('command-search').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
-            commands.forEach(cmd => {
-                const text = cmd.textContent.toLowerCase();
-                cmd.style.display = text.includes(term) ? 'block' : 'none';
+            document.querySelectorAll('.command-card').forEach(cmd => {
+                cmd.style.display = cmd.innerText.toLowerCase().includes(term) ? 'block' : 'none';
             });
-        });
-
-        // 3. Animación de entrada al hacer scroll
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.game-card, .stats-container, .command-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
         });
     </script>
 </body>
